@@ -24,7 +24,7 @@ class ALPR:
         files = [f for f in listdir(self.dataPath) if isfile(join(self.dataPath, f))]
         return files
     def removeFolderContent(self,folderpath):
-        files=glob(folderpath+'/*')
+        files=glob(folderpath+'//*')
         ok=0
         if files==None:
             files=glob(folderpath+'*')
@@ -73,7 +73,7 @@ class ALPR:
         # threshold=13
         img2 = np.zeros((output.shape),dtype = np.uint8)
         componentBorder = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
-        self.removeFolderContent('imgs/')
+        self.removeFolderContent('imgs//')
         for i in range(0, len(sizes)):
             if sizes[i] >= threshold:
                 
@@ -87,7 +87,7 @@ class ALPR:
                     img_save=original_plate[y:y+h,x:x+w]
                     # self.imgshow(img_save)
 
-                    cv2.imwrite("imgs/"+str(x)+'_'+str(y)+'.jpg',img_save)
+                    cv2.imwrite("imgs//"+str(x)+'_'+str(y)+'.jpg',img_save)
         # self.imgshow(componentBorder)
         
         return img2
